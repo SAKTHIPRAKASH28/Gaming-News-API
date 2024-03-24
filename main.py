@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import httpx
 import os
 from typing import Optional
-import asyncio
 from fastapi import FastAPI, Depends
 from cachetools import TTLCache
 app = FastAPI()
@@ -103,7 +102,8 @@ async def pcgamer(topic: Optional[str]):
 
 @app.get("/")
 async def gather_news(topic: Optional[str] = None):
-    gameR, pcgam = await asyncio.gather(gameRant(topic), pcgamer(topic))
+    gameR = await gameRant(topic)
+    pcgam = await pcgamer(topic)
     if not gameR:
         return pcgam
     if not pcgam:

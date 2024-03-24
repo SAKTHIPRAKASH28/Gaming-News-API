@@ -3,5 +3,4 @@ fastapi
 regex
 bs4
 httpx
-asyncio
 cachetools
