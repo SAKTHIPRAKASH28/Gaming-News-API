@@ -112,5 +112,5 @@ async def gather_news(topic: Optional[str] = None):
         return gameR+pcgam
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=int(os.getenv("PORT", 8080)),
-                reload=True, host="0.0.0.0")
+    PORT = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=PORT, reload=True)
