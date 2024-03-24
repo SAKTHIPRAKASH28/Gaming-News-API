@@ -39,7 +39,7 @@ Replace `your_topic` with the desired topic for filtering news articles.
 
 ## Hosted Link
 
-You can access the hosted version of this application at [your_hosted_link](your_hosted_link).
+You can access the hosted version of this application at [your_hosted_link](https://gaming-news-two.vercel.app/).
 
 ## API Endpoints
 
