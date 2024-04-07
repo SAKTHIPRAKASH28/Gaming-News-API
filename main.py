@@ -23,7 +23,6 @@ def checkTopic(topic: str, array: list[dict[str]]) -> list[dict[str]]:
         for key, value in dictionary.items():
             if isinstance(value, str) and topic.lower() in value.lower():
                 result.append(dictionary)
-
                 break
     if result:
         cache[topic.lower()] = result
@@ -36,6 +35,7 @@ async def gameRant(topic: Optional[str]):
         return cache[topic.lower()]
     if url in cache:
         if topic:
+
             checkTopic(topic, cache[url])
         else:
             return cache[url]
@@ -62,13 +62,17 @@ async def gameRant(topic: Optional[str]):
     if not topic:
         cache[url] = news
     else:
-        cache[topic] = news
+        if news:
+            cache[topic] = news
     return news
 
 
 async def pcgamer(topic: Optional[str]):
+
     url = "https://www.pcgamer.com/news/"
+
     if topic and topic.lower() in cache:
+
         return cache[topic.lower()]
     if url in cache:
         if topic:
@@ -96,7 +100,8 @@ async def pcgamer(topic: Optional[str]):
     if not topic:
         cache[url] = news
     else:
-        cache[topic] = news
+        if news:
+            cache[topic] = news
     return news
 
 
