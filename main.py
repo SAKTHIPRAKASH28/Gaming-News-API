@@ -91,7 +91,8 @@ async def pcgamer(topic: Optional[str]):
         else:
             doc["title"] = title
             doc["description"] = content.find(
-                'p', class_='synopsis').text.strip()
+                'p', class_='synopsis').text.split('\n', 1)[-1].strip()
+
             doc["updated"] = content.find(
                 'time', class_='no-wrap relative-date date-with-prefix').text.strip()
             doc["source"] = url
